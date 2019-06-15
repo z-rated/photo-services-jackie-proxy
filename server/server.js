@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const path = require('path');
 
@@ -9,9 +10,9 @@ app.get('/restaurants/:id', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-app.get('/api/restaurants/:id/photos', (req, res) => {
+app.get('/restaurant/photo/:id', (req, res) => {
   const { id } = req.params;
-  res.redirect(`http://3.88.8.197:3000/api/restaurants/${id}/photos`);
+  res.redirect(`http://localhost:3001/restaurant/photo/${id}`);
 })
 
 app.get('/api/restaurants/:id/reviews', (req, res) => {

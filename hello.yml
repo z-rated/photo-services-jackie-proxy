@@ -1,0 +1,13 @@
+config:
+  target: "http://localhost:1000"
+  phases:
+    - duration: 300
+      arrivalRate: 100
+scenarios:
+  - name: "Get photos from restaurant"
+    flow:
+    # - log: "New virtual user running"
+    - loop:
+      - get:
+          url: "/restaurant/photo/{{$randomNumber(1, 10000000)}}"
+      count: 100
